@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pawan Giri| Web Developer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Simple, human-style CSS -->
+  <style>
+    /* ====== Global styles ====== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.5;
+      background-color: #0f172a;
+      color: #e5e7eb;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 3rem 0;
+    }
+
+    h1, h2, h3 {
+      font-weight: 600;
+      color: #f9fafb;
+    }
+
+    p {
+      font-size: 0.95rem;
+      color: #d1d5db;
+    }
+
+    /* ====== Header / Nav ====== */
+    header {
+      background-color: rgba(15, 23, 42, 0.95);
+      border-bottom: 1px solid #1f2937;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(10px);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 0;
+    }
+
+    .logo {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .logo span {
+      color: #22c55e;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      padding-bottom: 0.1rem;
+      border-bottom: 2px solid transparent;
+    }
+
+    .nav-links a:hover {
+      border-bottom-color: #22c55e;
+    }
+
+    /* ====== Hero section ====== */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+      padding-top: 3rem;
+    }
+
+    .hero-text {
+      flex: 1 1 260px;
+    }
+
+    .hero-text h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-text h1 span {
+      color: #22c55e;
+    }
+
+    .hero-text h2 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #9ca3af;
+      margin-bottom: 1rem;
+    }
+
+    .hero-text p {
+      margin-bottom: 1.5rem;
+      max-width: 500px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-bottom: 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      font-size: 0.9rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .btn-primary {
+      background-color: #22c55e;
+      color: #022c22;
+      border-color: #16a34a;
+      font-weight: 600;
+    }
+
+    .btn-primary:hover {
+      background-color: #16a34a;
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: #e5e7eb;
+      border-color: #4b5563;
+    }
+
+    .btn-outline:hover {
+      border-color: #e5e7eb;
+    }
+
+    .hero-small-text {
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+
+    .hero-photo {
+      flex: 1 1 220px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .photo-card {
+      width: 220px;
+      height: 220px;
+      border-radius: 16px;
+      border: 1px solid #1f2937;
+      background: radial-gradient(circle at top, #1e293b, #020617);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: #22c55e;
+    }
+
+    /* ====== Section titles ====== */
+    .section-header {
+      margin-bottom: 1.5rem;
+    }
+
+    .section-header span {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #9ca3af;
+    }
+
+    .section-header h2 {
+      font-size: 1.4rem;
+      margin-top: 0.3rem;
+    }
+
+    /* ====== About ====== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 2fr 1.5fr;
+      gap: 1.5rem;
+    }
+
+    .card {
+      background-color: #020617;
+      border-radius: 14px;
+      border: 1px solid #1f2937;
+      padding: 1.2rem;
+    }
+
+    .about-text p + p {
+      margin-top: 0.7rem;
+    }
+
+    .tags {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tag {
+      font-size: 0.8rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background-color: #111827;
+      border: 1px solid #1f2937;
+    }
+
+    /* ====== Skills ====== */
+    .skills-columns {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .skills-columns h3 {
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      color: #e5e7eb;
+    }
+
+    .skills-list {
+      list-style: none;
+    }
+
+    .skills-list li {
+      margin-bottom: 0.25rem;
+      color: #d1d5db;
+    }
+
+    /* ====== Projects ====== */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .project-card {
+      background-color: #020617;
+      border-radius: 14px;
+      border: 1px solid #1f2937;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-title {
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .project-meta {
+      font-size: 0.8rem;
+      color: #9ca3af;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-desc {
+      font-size: 0.9rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      font-size: 0.75rem;
+    }
+
+    .project-tag {
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      background-color: #111827;
+      border: 1px solid #1f2937;
+    }
+
+    .project-links {
+      margin-top: 0.7rem;
+      font-size: 0.85rem;
+    }
+
+    .project-links a {
+      color: #22c55e;
+      margin-right: 0.6rem;
+    }
+
+    .project-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* ====== Contact ====== */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 2fr 1.3fr;
+      gap: 1.5rem;
+    }
+
+    .contact-list {
+      list-style: none;
+      font-size: 0.95rem;
+    }
+
+    .contact-list li + li {
+      margin-top: 0.5rem;
+    }
+
+    .contact-list a {
+      color: #22c55e;
+    }
+
+    .contact-list a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-note {
+      font-size: 0.85rem;
+      color: #9ca3af;
+      margin-top: 0.7rem;
+    }
+
+    /* ====== Footer ====== */
+    footer {
+      border-top: 1px solid #1f2937;
+      padding: 1.2rem 0;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #9ca3af;
+    }
+
+    /* ====== Responsive ====== */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none; /* keep it super simple for now */
+      }
+
+      .hero {
+        padding-top: 2rem;
+      }
+
+      .about-grid,
+      .projects-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ====== Header / Navigation ====== -->
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <span>&lt;/&gt;</span> PAWAN BAN
+      </div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ====== Hero / Intro ====== -->
+  <main class="container">
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Hi, I'm <span>Pawan Ban</span></h1>
+        <h2>Junior Web Developer</h2>
+        <p>
+          I build simple, clean and responsive websites using HTML, CSS and JavaScript.
+          I'm currently looking for freelance projects to grow my experience and help
+          small businesses get online.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">View my projects</a>
+          <a href="#contact" class="btn btn-outline">Hire me</a>
+        </div>
+
+        <p class="hero-small-text">
+          🚀 Available for small freelance websites, landing pages and basic front-end work.
+        </p>
+      </div>
+
+      <div class="hero-photo">
+        <!-- You can replace this with a real photo later -->
+        <div class="photo-card">
+          <img src="pawan.jpg.jpg" alt="Pawan"
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== About section ====== -->
+    <section id="about">
+      <div class="section-header">
+        <span>About</span>
+        <h2>Who I am</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="card about-text">
+          <p>
+            I'm a beginner web developer who enjoys turning simple ideas into working websites.
+            Right now I'm focused on building real projects to improve my HTML, CSS and JavaScript skills.
+          </p>
+          <p>
+            I like clean layouts, readable code and small details that make a website feel good to use.
+            My goal is to become a reliable freelancer that clients can trust for small to medium projects.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Beginner friendly</span>
+            <span class="tag">Open to feedback</span>
+            <span class="tag">Fast learner</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-bottom: 0.7rem;">Quick facts</h3>
+          <ul class="contact-list">
+            <li>💻 Focus: Front-end / simple websites</li>
+            <li>🌍 Location: Antwerpen / Remote</li>
+            <li>🕒 Availability: Part-time / Flexible</li>
+            <li>📚 Currently learning: JavaScript & responsive design</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== Skills section ====== -->
+    <section id="skills">
+      <div class="section-header">
+        <span>Skills</span>
+        <h2>What I use</h2>
+      </div>
+
+      <div class="card">
+        <div class="skills-columns">
+          <div>
+            <h3>Front-end</h3>
+            <ul class="skills-list">
+              <li>HTML5 (semantic, forms, basic SEO)</li>
+              <li>CSS3 (Flexbox, simple animations)</li>
+              <li>Basic responsive layouts</li>
+              <li>Vanilla JavaScript (DOM, events)</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Tools & workflow</h3>
+            <ul class="skills-list">
+              <li>VS Code</li>
+              <li>Git & GitHub (basic)</li>
+              <li>Chrome DevTools</li>
+              <li>Deploying with Netlify / Vercel (learning)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== Projects section ====== -->
+    <section id="projects">
+      <div class="section-header">
+        <span>Projects</span>
+        <h2>Small projects I've built</h2>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <article class="project-card">
+          <div>
+            <h3 class="project-title">Personal Portfolio</h3>
+            <p class="project-meta">HTML • CSS • Responsive</p>
+            <p class="project-desc">
+              A simple one-page portfolio to practice layout, typography and mobile-first CSS.
+              Includes sections for about, projects, skills and contact.
+            </p>
+          </div>
+
+          <div>
+            <div class="project-tags">
+              <span class="project-tag">Flexbox</span>
+              <span class="project-tag">Mobile-first</span>
+            </div>
+            <div class="project-links">
+              <!-- Replace these with your real links later -->
+              <a href="#" target="_blank">Live demo</a>
+              <a href="#" target="_blank">Source code</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card">
+          <div>
+            <h3 class="project-title">Restaurant Landing Page</h3>
+            <p class="project-meta">HTML • CSS</p>
+            <p class="project-desc">
+              A landing page for a small local restaurant with a hero section, menu preview
+              and contact area. Focused on basic layout and simple visual hierarchy.
+            </p>
+          </div>
+          <div>
+            <div class="project-tags">
+              <span class="project-tag">Landing page</span>
+              <span class="project-tag">Static</span>
+            </div>
+            <div class="project-links">
+              <a href="#" target="_blank">Live demo</a>
+              <a href="#" target="_blank">Source code</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project-card">
+          <div>
+            <h3 class="project-title">Simple Todo App</h3>
+            <p class="project-meta">HTML • CSS • JavaScript</p>
+            <p class="project-desc">
+              A basic todo list where users can add and remove tasks.
+              Built to practice JavaScript DOM manipulation and event handling.
+            </p>
+          </div>
+          <div>
+            <div class="project-tags">
+              <span class="project-tag">JavaScript</span>
+              <span class="project-tag">DOM</span>
+            </div>
+            <div class="project-links">
+              <a href="#" target="_blank">Live demo</a>
+              <a href="#" target="_blank">Source code</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ====== Contact section ====== -->
+    <section id="contact">
+      <div class="section-header">
+        <span>Contact</span>
+        <h2>Let’s work together</h2>
+      </div>
+
+      <div class="contact-grid">
+        <div class="card">
+          <p>
+            If you need a simple website or landing page for your business, personal brand or idea,
+            I'd be happy to help. I'm still building my experience, so I'm open to smaller budgets
+            and clear feedback.
+          </p>
+
+          <ul class="contact-list" style="margin-top: 1rem;">
+            <li>📧 Email: <a href="mailto:youremail@example.com">globalynxintl@gmail.com</a></li>
+            <li>💼 LinkedIn: <a href="https://www.linkedin.com/in/pawan-ban-b87aa3333" target="_blank">linkedin.com/in/pawan-ban-b87aa3333</a> </a></li>
+            <li>💻 GitHub: <a href="https://github.com/crizzthegod" target="_blank">github.com/crizzthegod</a></li>
+          </ul>
+
+          <p class="contact-note">
+            You can also send me a link to a website you like and I will try to create
+            something similar in a simple version.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-bottom: 0.7rem;">What I can do for you</h3>
+          <ul class="skills-list">
+            <li>✓ One-page websites and portfolios</li>
+            <li>✓ Basic landing pages for products/services</li>
+            <li>✓ Simple UI with HTML/CSS/JS only</li>
+            <li>✓ Fix small layout / CSS issues</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====== Footer ====== -->
+  <footer>
+    © <span id="year"></span> PAWAN BAN. Built with HTML, CSS and a lot of practice.
+  </footer>
+
+  <!-- Tiny bit of JS just to update the year -->
+  <script>
+    const yearSpan = document.getElementById("year");
+    yearSpan.textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
